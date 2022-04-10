@@ -24,18 +24,31 @@ public class Main {
 
         utils.print(M);
 
-        // Matriz U tiene su diagonal con 1's.
-        FactorizationStrategy croutStrgy = new CroutStrategy();
+//        System.out.println("Método Crout");
+//
+//        // Matriz U tiene su diagonal con 1's.
+//        FactorizationStrategy croutStrgy = new CroutStrategy();
+//        utils.setFactorizationStrategy(croutStrgy);
+//
+//        List<double[][]> croutFact = utils.factorization(M);
+//        utils.print(croutFact.get(0));
+//        utils.print(croutFact.get(1));
+//
+//        System.out.println("Método Doolittle");
+//
+//        // Matriz L tiene  un 1 en la diagonal.
+//        FactorizationStrategy doolittleStrgy = new DoolittleStrategy();
+//        utils.setFactorizationStrategy(doolittleStrgy);
+//
+//        List<double[][]> doolittleFact = utils.factorization(M);
+//        utils.print(doolittleFact.get(0));
+//        utils.print(doolittleFact.get(1));
 
-        utils.setFactorizationStrategy(croutStrgy);
-        List<double[][]> croutFact = utils.factorization(M);
-        utils.print(croutFact.get(0));
-        utils.print(croutFact.get(1));
-        // ---
+        FactorizationStrategy gsStrgy = new GramSchmidtStrategy();
+        utils.setFactorizationStrategy(gsStrgy);
 
-
-
-
-
+        List<double[][]> gsFact = utils.factorization(M);
+        utils.print(gsFact.get(0));
+        utils.print(gsFact.get(1));
     }
 }
