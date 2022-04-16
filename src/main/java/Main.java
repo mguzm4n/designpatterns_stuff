@@ -1,4 +1,6 @@
 import Adapter.*;
+import Command.ElementaryMatrixCalculator;
+import Command.SwapCommand;
 import Strategy.*;
 
 import java.util.List;
@@ -14,15 +16,13 @@ public class Main {
         System.out.println("Se entrega al cliente una clase compatible, el caso sin problemas...");
         adapterClient(wavfile); // Caso con clase compatible
 
-
         System.out.println("Se entrega al cliente una clase incompatible adaptándola correctamente...");
         adapterClient(new MP3WAVAdapter(mp3file));
 
-
-
-
 //         Strategy
 //        strategyTest();
+
+        commandTest();
 
     }
     static void adapterClient(DecodedFile file){
@@ -68,4 +68,25 @@ public class Main {
         utils.print(gsFact.get(1));
     }
 
+    /**
+     * Los comandos pueden servir, ahora, individualmente, para:
+     * - Resolver sistema de ecuaciones.
+     * - Obtener la matriz inversa.
+     * - Reducir la matriz como matriz triangular superior o inferior.
+     * - Reducir la matriz en forma escalonada.
+     */
+    static void commandTest(){
+        // Estado de nustra app
+        int[][] M = {{1, 2, 1},
+                {1, 3, 2},
+                {2, 4, 5}};
+
+        // Obtengamos la forma triangular superior:
+
+        var calculator = new ElementaryMatrixCalculator();
+
+        calculator.setCommand(new SwapCommand());
+        calculator.executeCommand();
+
+    }
 }
