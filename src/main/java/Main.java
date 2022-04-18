@@ -1,8 +1,13 @@
+import AbstractFactory.AbstractDeviceFactory;
+import AbstractFactory.Headphones;
+import AbstractFactory.Speaker;
+import AbstractFactory.WirelessDeviceFactory;
 import Adapter.*;
 import Command.ElementaryMatrixCalculator;
 import Command.RenderMatrixEngine;
 import Command.SwapCommand;
 import Strategy.*;
+import AbstractFactory.*;
 
 import java.util.List;
 
@@ -10,6 +15,11 @@ public class Main {
     public static void main(String[] args) {
 
         // Abstract Factory.
+
+        AbstractDeviceFactory wirelessDeviceFactory = new WirelessDeviceFactory();
+        Headphones headphones = wirelessDeviceFactory.createHeadphones();
+        Keyboard keyboard = wirelessDeviceFactory.createKeyboard();
+        Speaker speaker = wirelessDeviceFactory.createSpeaker();
 
 
         // Adapter
