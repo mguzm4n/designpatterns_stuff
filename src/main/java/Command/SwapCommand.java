@@ -1,8 +1,7 @@
 package Command;
 
-public class SwapCommand implements RowOperationCommand {
+public class SwapCommand extends RowOperationCommand {
     int row_i, row_j;
-    int[][] matrix;
 
     /**
      * Deja los valores de la fila i en la fila j y viceversa.
@@ -26,6 +25,8 @@ public class SwapCommand implements RowOperationCommand {
             matrix[this.row_i][i] = matrix[this.row_j][i];
             matrix[this.row_j][i] = copy[i];
         }
+
+        this.buttonReceiver.render(this.matrix);
 
         return matrix;
     }

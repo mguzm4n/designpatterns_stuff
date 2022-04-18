@@ -1,7 +1,6 @@
 package Command;
 
-public class AddCommand implements RowOperationCommand {
-    int[][] matrix;
+public class AddCommand extends RowOperationCommand {
     int row_i, row_j;
 
     /**

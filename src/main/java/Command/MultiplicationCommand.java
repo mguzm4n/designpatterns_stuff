@@ -1,9 +1,8 @@
 package Command;
 
-public class MultiplicationCommand implements RowOperationCommand {
+public class MultiplicationCommand extends RowOperationCommand {
     int row_i;
     int factor;
-    int[][] matrix;
 
     public MultiplicationCommand(int i, int factor, int[][] matrix){
         this.row_i = i - 1;

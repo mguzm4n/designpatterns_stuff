@@ -1,8 +1,7 @@
 package Command;
 
-public class AddMultiplicationCommand implements RowOperationCommand {
+public class AddMultiplicationCommand extends RowOperationCommand {
     int row_i, row_j, factor;
-    int[][] matrix;
 
     /**
      * La fila i se convierte en la fila i + k veces la fila j.

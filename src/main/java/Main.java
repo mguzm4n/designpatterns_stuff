@@ -1,5 +1,6 @@
 import Adapter.*;
 import Command.ElementaryMatrixCalculator;
+import Command.RenderMatrixEngine;
 import Command.SwapCommand;
 import Strategy.*;
 
@@ -7,6 +8,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        // Abstract Factory.
+
 
         // Adapter
 
@@ -83,9 +87,16 @@ public class Main {
 
         // Obtengamos la forma triangular superior:
 
+        var btn = new RenderMatrixEngine();
+
+        // Emisor de solicitudes o comandos
         var calculator = new ElementaryMatrixCalculator();
 
-        calculator.setCommand(new SwapCommand());
+        // Crear un comando individual
+        SwapCommand swpCmd = new SwapCommand(1, 2, M);
+
+        swpCmd.setReceiver(btn); // Pasar objeto receptor
+        calculator.setCommand(swpCmd);
         calculator.executeCommand();
 
     }

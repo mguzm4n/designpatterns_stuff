@@ -18,6 +18,21 @@ public class MatrixUtils {
         }
         System.out.println("***");
     }
+
+    public void print(int[][] A){
+        System.out.println("***");
+        for (int i = 0; i < 3; i++){
+            System.out.print("[");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(A[i][j]);
+                System.out.print(", ");
+            }
+            System.out.print("]");
+            System.out.println("\n");
+        }
+        System.out.println("***");
+    }
+
     public double[][] copy(double[][] A){
         double[][] B = new double[A.length][];
         for(int i = 0; i < A.length; i++){

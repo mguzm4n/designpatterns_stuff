@@ -51,4 +51,12 @@ public class GramSchmidtStrategy implements FactorizationStrategy{
     public List<double[][]> getResults() {
         return List.of(Q, R);
     }
+
+    public double[][] getQ() {
+        return Q;
+    }
+
+    public double[][] getR() {
+        return R;
+    }
 }
