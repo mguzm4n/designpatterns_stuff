@@ -1,11 +1,6 @@
-import AbstractFactory.AbstractDeviceFactory;
-import AbstractFactory.Headphones;
-import AbstractFactory.Speaker;
-import AbstractFactory.WirelessDeviceFactory;
+import AbstractFactory.*;
 import Adapter.*;
-import Command.ElementaryMatrixCalculator;
-import Command.RenderMatrixEngine;
-import Command.SwapCommand;
+import Command.*;
 import Strategy.*;
 import AbstractFactory.*;
 
@@ -21,6 +16,9 @@ public class Main {
         Keyboard keyboard = wirelessDeviceFactory.createKeyboard();
         Speaker speaker = wirelessDeviceFactory.createSpeaker();
 
+        headphones.setVolume(55);
+        speaker.nextStream();
+        keyboard.write('a');
 
         // Adapter
 
@@ -36,7 +34,7 @@ public class Main {
 //         Strategy
 //        strategyTest();
 
-        commandTest();
+//        commandTest();
 
     }
     static void adapterClient(DecodedFile file){
@@ -97,16 +95,23 @@ public class Main {
 
         // Obtengamos la forma triangular superior:
 
-        var btn = new RenderMatrixEngine();
+        var gui = new RenderMatrixEngine();
 
         // Emisor de solicitudes o comandos
         var calculator = new ElementaryMatrixCalculator();
 
         // Crear un comando individual
         SwapCommand swpCmd = new SwapCommand(1, 2, M);
+        swpCmd.setReceiver(gui); // Pasar objeto receptor
 
-        swpCmd.setReceiver(btn); // Pasar objeto receptor
+
         calculator.setCommand(swpCmd);
+        calculator.executeCommand();
+
+        AddMultiplicationCommand addMultCmd = new AddMultiplicationCommand(1, 2, 2, M);
+        addMultCmd.setReceiver(gui);
+
+        calculator.setCommand(addMultCmd);
         calculator.executeCommand();
 
     }

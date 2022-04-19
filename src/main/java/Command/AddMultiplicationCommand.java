@@ -11,8 +11,8 @@ public class AddMultiplicationCommand extends RowOperationCommand {
      * @param matrix
      */
     public AddMultiplicationCommand(int i, int k, int j, int[][] matrix){
-        this.row_i = i - 1;
-        this.row_j = j - 1;
+        this.row_i = i;
+        this.row_j = j;
         this.factor = k;
         this.matrix = matrix;
     }
@@ -25,6 +25,9 @@ public class AddMultiplicationCommand extends RowOperationCommand {
         var finalMatrix = addCommand.execute();
 
         this.matrix = finalMatrix;
+
+        this.gui.render(finalMatrix);
+
         return finalMatrix;
     }
 }

@@ -1,12 +1,12 @@
 package Command;
 
 public abstract class RowOperationCommand {
-    RenderMatrixEngine buttonReceiver;
+    RenderMatrixEngine gui;
     int[][] matrix;
 
     abstract int[][] execute();
 
-    public void setReceiver(RenderMatrixEngine btn){
-        this.buttonReceiver = btn;
+    public void setReceiver(RenderMatrixEngine gui){
+        this.gui = gui;
     }
 }

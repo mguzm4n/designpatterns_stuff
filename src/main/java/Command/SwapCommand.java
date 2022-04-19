@@ -26,7 +26,7 @@ public class SwapCommand extends RowOperationCommand {
             matrix[this.row_j][i] = copy[i];
         }
 
-        this.buttonReceiver.render(this.matrix);
+        this.gui.render(this.matrix);
 
         return matrix;
     }
